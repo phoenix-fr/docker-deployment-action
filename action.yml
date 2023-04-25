@@ -3,10 +3,7 @@ author: Al-waleed Shihadeh <wshihadeh.dev@gmail.com>
 description: A GitHub Action that supports docker-compose and Docker Swarm deployments
 inputs:
   remote_docker_host:
-    description: Remote Docker host
-    required: true
-  remote_docker_user:
-    description: Remote Docker user
+    description: Remote Docker host io (user@host)
     required: true
   remote_docker_port:
     description: Remote Docker ssh port ie (22)
