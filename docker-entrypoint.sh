@@ -1,13 +1,6 @@
 #!/bin/sh
 set -eu
 
-execute_ssh(){
-  echo "Execute Over SSH: $@"
-  ssh -q -t \
-      -p $INPUT_REMOTE_DOCKER_PORT \
-      -o StrictHostKeyChecking=accept-new "$INPUT_REMOTE_DOCKER_HOST" "$@"
-}
-
 if [ -z "$INPUT_REMOTE_DOCKER_PORT" ]; then
   INPUT_REMOTE_DOCKER_PORT=22
 fi
@@ -52,6 +45,9 @@ printf '%s\n' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/id_rsa"
 chmod 600 "$HOME/.ssh/id_rsa"
 eval $(ssh-agent)
 ssh-add "$HOME/.ssh/id_rsa"
+
+echo "Add to known host"
+ssh -oStrictHostKeyChecking=accept-new -p$INPUT_REMOTE_DOCKER_PORT $INPUT_REMOTE_DOCKER_HOST "echo \"SSH OK\""
 
 echo "Connecting to $INPUT_REMOTE_DOCKER_HOST... Command: ${DEPLOYMENT_COMMAND} ${INPUT_ARGS}"
 ${DEPLOYMENT_COMMAND} ${INPUT_ARGS} 2>&1
