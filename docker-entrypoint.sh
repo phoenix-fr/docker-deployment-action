@@ -4,9 +4,8 @@ set -eu
 execute_ssh(){
   echo "Execute Over SSH: $@"
   ssh -q -t -i "$HOME/.ssh/id_rsa" \
-      -o UserKnownHostsFile=/dev/null \
       -p $INPUT_REMOTE_DOCKER_PORT \
-      -o StrictHostKeyChecking=no "$INPUT_REMOTE_DOCKER_HOST" "$@"
+      -o StrictHostKeyChecking=accept-new "$INPUT_REMOTE_DOCKER_HOST" "$@"
 }
 
 if [ -z "$INPUT_REMOTE_DOCKER_PORT" ]; then
@@ -80,9 +79,6 @@ printf '%s\n' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/id_rsa"
 chmod 600 "$HOME/.ssh/id_rsa"
 eval $(ssh-agent)
 ssh-add "$HOME/.ssh/id_rsa"
-
-#echo "Add known hosts"
-#printf '%s %s\n' "$SSH_HOST" "$INPUT_SSH_PUBLIC_KEY" > /etc/ssh/ssh_known_hosts
 
 if ! [ -z "$INPUT_DOCKER_PRUNE" ] && [ $INPUT_DOCKER_PRUNE = 'true' ] ; then
   yes | docker --log-level debug --host "ssh://$INPUT_REMOTE_DOCKER_HOST:$INPUT_REMOTE_DOCKER_PORT" system prune -a 2>&1
