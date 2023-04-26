@@ -1,6 +1,6 @@
 # Docker Deployment Action
 
-A [GitHub Action](https://github.com/marketplace/actions/docker-deployment) that supports docker-compose and Docker Swarm deployments. [Documentaion Page](https://wshihadeh.github.io/actions/Docker-Deployment/).
+A [GitHub Action](https://github.com/marketplace/actions/docker-deployment) that supports Docker Swarm deployments. [Documentaion Page](https://wshihadeh.github.io/actions/Docker-Deployment/).
 
 
 ## Example
@@ -25,10 +25,7 @@ Below are all of the supported inputs. Some inputs are considered sensitive info
 
 ### `args`
 
-Arguments to pass to the deployment command either  `docker`  or `docker-compose`. The actions will automatically generate the follwing commands for each of the cases.
-
-- `docker stack deploy --compose-file $FILE --log-level debug --host $HOST`
-- `docker-compose -f $INPUT_STACK_FILE_NAME`
+Arguments to pass to the deployment command either  `docker`. The actions will be automatically generated
 
 
 ### `remote_docker_host`
