@@ -56,6 +56,9 @@ ssh-add "$HOME/.ssh/id_rsa"
 echo "Add to known host"
 ssh -oStrictHostKeyChecking=accept-new -p$INPUT_REMOTE_DOCKER_PORT $INPUT_REMOTE_DOCKER_HOST "echo \"SSH OK\""
 
+echo "Create deploy dir"
+ssh -p$INPUT_REMOTE_DOCKER_PORT $INPUT_REMOTE_DOCKER_HOST "mkdir -p $INPUT_DEPLOY_PATH" 
+
 echo "Copy yml files"
 scp -P$INPUT_REMOTE_DOCKER_PORT $STACK_FILE $INPUT_REMOTE_DOCKER_HOST:$INPUT_DEPLOY_PATH/
 
