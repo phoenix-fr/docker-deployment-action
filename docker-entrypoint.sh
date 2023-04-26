@@ -30,7 +30,7 @@ if [ -z "$INPUT_STACK_FILE_NAME" ]; then
 fi
 
 if [ -z "$INPUT_DEPLOY_PATH" ]; then
-  INPUT_DEPLOY_PATH=~/.deploy
+  INPUT_DEPLOY_PATH="~/.deploy"
 fi
 
 DEPLOY_OPTION=""
