@@ -25,7 +25,7 @@ inputs:
     description: Docker stack file used. Default is docker-compose.yml
     required: false
   traefik_file_name:
-    description: Docker traefik file used. Default is traefik.yml
+    description: Docker traefik file used. If not exists, file is not used
     required: false
 
 runs:
