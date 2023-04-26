@@ -18,7 +18,7 @@ inputs:
   args:
     description: Deployment command args.
     required: true
-  gh_toke,:
+  gh_token:
     description: GitHub token for private registry usage
     required: true
   deploy_path:
