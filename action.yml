@@ -22,7 +22,10 @@ inputs:
     description: The path where the stack files will be copied to. Default ~/docker-deployment.
     required: false
   stack_file_name:
-    description: Docker stack file used. Default is docker-compose.yaml
+    description: Docker stack file used. Default is docker-compose.yml
+    required: false
+  traefik_file_name:
+    description: Docker traefik file used. Default is traefik.yml
     required: false
 
 runs:
