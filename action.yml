@@ -18,6 +18,9 @@ inputs:
   args:
     description: Deployment command args.
     required: true
+  gh_toke,:
+    description: GitHub token for private registry usage
+    required: true
   deploy_path:
     description: The path where the stack files will be copied to. Default ~/docker-deployment.
     required: false
