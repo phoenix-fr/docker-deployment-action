@@ -25,10 +25,6 @@ if [ -z "$INPUT_ARGS" ]; then
   exit 1
 fi
 
-if [ -z "$INPUT_DEPLOY_PATH" ]; then
-  INPUT_DEPLOY_PATH=~/docker-deployment
-fi
-
 if [ -z "$INPUT_STACK_FILE_NAME" ]; then
   INPUT_STACK_FILE_NAME=docker-compose.yml
 fi
@@ -37,6 +33,7 @@ if [ -z "$INPUT_DEPLOY_PATH" ]; then
   INPUT_DEPLOY_PATH=~/.deploy
 fi
 
+DEPLOY_OPTION=""
 if [ -z "$INPUT_TRAEFIK_FILE_NAME" ]; then
   DEPLOY_OPTION=" -c $INPUT_DEPLOY_PATH/$INPUT_TRAEFIK_FILE_NAME"
 fi
