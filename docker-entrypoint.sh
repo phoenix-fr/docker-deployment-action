@@ -29,6 +29,11 @@ if [ -z "$INPUT_STACK_FILE_NAME" ]; then
   INPUT_STACK_FILE_NAME=docker-compose.yml
 fi
 
+if [ -z "$INPUT_GH_TOKEN" ]; then
+    echo "Input github token is required!"
+    exit 1
+fi
+
 if [ -z "$INPUT_DEPLOY_PATH" ]; then
   INPUT_DEPLOY_PATH="~/.deploy"
 fi
@@ -65,4 +70,4 @@ fi
 
 echo "Connecting to $INPUT_REMOTE_DOCKER_HOST... Command: ${DEPLOYMENT_COMMAND} ${INPUT_ARGS}"
 
-ssh -p$INPUT_REMOTE_DOCKER_PORT $INPUT_REMOTE_DOCKER_HOST "echo $GH_TOKEN | | docker login ghcr.io -u USERNAME --password-stdin && ${DEPLOYMENT_COMMAND} ${INPUT_ARGS}" 2>&1
+ssh -p$INPUT_REMOTE_DOCKER_PORT $INPUT_REMOTE_DOCKER_HOST "echo $INPUT_GH_TOKEN | | docker login ghcr.io -u USERNAME --password-stdin && ${DEPLOYMENT_COMMAND} ${INPUT_ARGS}" 2>&1
