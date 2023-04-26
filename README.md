@@ -36,10 +36,6 @@ Specify Remote Docker host. The input value must be in the follwing format (user
 
 Specify Remote Docker ssh port if its not 22 default ie (2222)
 
-### `ssh_public_key`
-
-Remote Docker SSH public key. 
-
 ### `ssh_private_key`
 
 SSH private key used to connect to the docker host
