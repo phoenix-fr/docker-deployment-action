@@ -9,9 +9,6 @@ inputs:
     description: Remote Docker ssh port ie (22)
     required: false
     default: '22'
-  ssh_public_key:
-    description: Remote Docker SSH public key
-    required: true
   ssh_private_key:
     description: SSH private key used to connect to the docker host
     required: true
