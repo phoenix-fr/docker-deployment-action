@@ -30,7 +30,7 @@ if [ -z "$INPUT_DEPLOY_PATH" ]; then
 fi
 
 if [ -z "$INPUT_STACK_FILE_NAME" ]; then
-  INPUT_STACK_FILE_NAME=docker-compose.yaml
+  INPUT_STACK_FILE_NAME=docker-compose.yml
 fi
 
 if [ -z "$INPUT_DEPLOY_PATH" ]; then
