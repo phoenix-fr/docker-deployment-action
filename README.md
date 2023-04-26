@@ -48,10 +48,14 @@ SSH key must be in PEM format (begins with -----BEGIN RSA PRIVATE KEY-----), or 
 
 Convert it from OPENSSH (key begins with -----BEGIN OPENSSH PRIVATE KEY-----)  format using `ssh-keygen -p -m PEM -f ~/.ssh/id_rsa`
 
+### `gh_toke,`
+GitHub token for private registry
 ### `deploy_path`
 The path where the stack files will be copied to. Default ~/.deploy
 ### `stack_file_name`
 Docker stack file used. Default is docker-compose.yaml
+### `traefik_file_name`
+Docker traefik file used, only if exists
 
 ## License
 
